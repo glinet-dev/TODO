@@ -12,20 +12,22 @@ export const todoSlice = createSlice({
     name: "todo",
     initialState,
     reducers: {
-        addTodo(state, action) {
+        addTodo:(state, action) =>{
             // state.todoList.push(action.payload);
+            console.log(action.payload,state,"hello");
+            
             const todo = {
                 id: nanoid(),
-                title: action.payload.title,
+                title: action.payload,
                 completed: false
             }
             state.todoList.push(todo);
         },
-        deleteTodo(state, action) {
+        deleteTodo:(state, action)=> {
             const { id } = action.payload;
             state.todoList = state.todoList.filter((todo) => todo.id !== id);
         },
-        updateTodo(state,action){
+        updateTodo:(state,action)=>{
             const {id} = action.payload;
             const todo = state.todoList.find((todo=>todo?.id === id));
             if(todo){
