@@ -9,7 +9,6 @@ const AddTodo = () => {
     const handleSubmit = (e) => {                
         e.preventDefault();
         dispatch(addTodo(input));
-        console.log(input);
         setInput('');
     }
   return (
